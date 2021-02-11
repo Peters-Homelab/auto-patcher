@@ -17,7 +17,7 @@ A shell script and systemd service that automatically runs package upgrades, cle
 ------------
 
 ### Install Auto-Patcher
-`curl https://raw.githubusercontent.com/JustinTimperio/auto-patcher/master/install.sh | sudo sh`
+`curl https://git.peters-homelab.com/Peters-Homelab/auto-patcher/raw/branch/master/install.sh | sudo sh`
 
 ### Uninstall Auto-Patcher
 `sudo /opt/auto-patcher/remove.sh`
