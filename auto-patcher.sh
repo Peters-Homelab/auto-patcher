@@ -74,9 +74,9 @@ if [ "$osname" = 'ubuntu' ] || [ "$osname" = 'debian' ]; then
 ## RHL
 #############################
 elif [ "$osname" = 'centos' ] || [ "$osname" = 'fedora' ]; then
-  ### Update and Upgrade System
+  ### Update System
   echo '' >> "$log" 2>&1 
-  yum -y upgrade >> "$log" 2>&1
+  yum -y update >> "$log" 2>&1
   
   if [ "$cleanup" = 'true' ]; then
     ### Cleanup
