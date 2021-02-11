@@ -2,7 +2,7 @@
 
 # Clone Repo
 rm -rf /opt/auto-patcher
-git clone https://github.com/JustinTimperio/auto-patcher.git /opt/auto-patcher
+git clone https://git.peters-homelab.com/Peters-Homelab/auto-patcher.git /opt/auto-patcher
 
 # Add Config to /etc
 mkdir -p /etc/auto-patcher
@@ -10,7 +10,7 @@ cp /opt/auto-patcher/config /etc/auto-patcher/config
 
 if [ "$(uname)" = 'FreeBSD' ]; then
   croncmd="/opt/auto-patcher/auto-patcher.sh"
-  cronjob="0 0 * * 1 $croncmd"
+  cronjob="0 0 * * 0-6 $croncmd"
   ( crontab -l | grep -v -F "$croncmd" || : ; echo "$cronjob" ) | crontab -
 
 else
