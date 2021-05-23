@@ -2,7 +2,7 @@
 
 # Clone Repo
 rm -rf /opt/auto-patcher
-git clone https://git.peters-homelab.com/Peters-Homelab/auto-patcher.git /opt/auto-patcher
+git clone https://github.com/Peters-Homelab/auto-patcher.git /opt/auto-patcher
 
 # Add Config to /etc
 mkdir -p /etc/auto-patcher
