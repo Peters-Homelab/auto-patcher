@@ -11,11 +11,9 @@ echo "         $(date)" >> "$log" 2>&1
 echo "=================================================" >> "$log" 2>&1
 echo [$(date +%T)] Started Auto-Patcher... >> "$log" 2>&1
 
-
 #################################################
 # Check If a Pre-Transaction Script is Defined
 ###############################################
-
 
 if [ -n "$pre_transaction" ]; then 
   echo [$(date +%T)] Started Running Custom Pre-Transaction Script. >> "$log" 2>&1 
@@ -25,11 +23,9 @@ else
   echo [$(date +%T)] No Pre-Transaction Command Defined. >> "$log" 2>&1 
 fi
 
-
 #################################################
 # Run Upgrades Per OS and Report Reboot Status
 ###############################################
-
 
 if [ "$(uname)" = 'FreeBSD' ]; then
   osname="freebsd"
@@ -38,7 +34,6 @@ else
 fi
 
 echo [$(date +%T)] Detected the Operating System: "$osname" >> "$log" 2>&1 
-
 
 #############################
 ## DEBIAN
@@ -71,7 +66,7 @@ if [ "$osname" = 'ubuntu' ] || [ "$osname" = 'debian' ]; then
   fi
 
 #############################
-## RHL
+## RHEL
 #############################
 elif [ "$osname" = 'centos' ] || [ "$osname" = 'fedora' ]; then
   ### Update System
@@ -205,7 +200,6 @@ else
   exit
 fi
 
-
 ##################################################
 # Check If a Post-Transaction Script is Defined
 ################################################
@@ -218,7 +212,6 @@ if [ -n "$post_transaction" ]; then
 else 
   echo [$(date +%T)] No Post-Transaction Command Defined. >> "$log" 2>&1 
 fi
-
 
 ##########################################
 # Decide If Reboot Should Be Scheduled
@@ -235,7 +228,6 @@ elif [ "$reboot_needed" = 'true' ]; then
   echo [$(date +%T)] Reboot is Required and Will Be Scheduled "$reboot_time" Mins in the Future >> "$log" 2>&1
   shutdown -r +"$reboot_offset" 'Auto-Patcher Has Scheduled a Reboot After a System Upgrade' >> "$log" 2>&1
 fi
-
 
 # Finish Logging and Exit
 echo [$(date +%T)] Auto-Patcher Finished. >> "$log" 2>&1
